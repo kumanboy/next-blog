@@ -13,6 +13,7 @@ export interface IBlog {
 	}
 	createdAt: string
 	content: {html:string}
+	slug: string
 
 }
 export interface IAuthor {
@@ -20,6 +21,8 @@ export interface IAuthor {
 	image: {
 		url: string
 	}
+	bio: string
+
 }
 export interface ICategoryAndTags {
 	name: string
