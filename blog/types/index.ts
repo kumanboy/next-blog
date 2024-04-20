@@ -8,22 +8,18 @@ export interface IBlog {
 	author: IAuthor
 	category: ICategoryAndTags
 	tag: ICategoryAndTags
-	image: {
-		url: string
-	}
+	image: { url: string }
 	createdAt: string
-	content: {html:string}
+	content: { html: string }
 	slug: string
-
 }
+
 export interface IAuthor {
 	name: string
-	image: {
-		url: string
-	}
+	image: { url: string }
 	bio: string
-
 }
+
 export interface ICategoryAndTags {
 	name: string
 	slug: string

@@ -1,7 +1,7 @@
 import BlogCard from '@/components/cards/blog'
+import { getBlogs } from '@/service/blog.service'
 import { Dot, Home } from 'lucide-react'
 import Link from 'next/link'
-import {getBlogs} from "@/service/blog.service";
 
 async function BlogsPage() {
 	const blogs = await getBlogs()
