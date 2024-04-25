@@ -3,6 +3,7 @@ import { ChildProps } from '@/types'
 import type { Metadata } from 'next'
 import { Crete_Round, Work_Sans } from 'next/font/google'
 import './globals.css'
+import {Toaster} from "@/components/ui/sonner";
 
 const creteRound = Crete_Round({
 	weight: ['400'],
@@ -23,9 +24,10 @@ export const metadata: Metadata = {
 
 function RootLayout({ children }: ChildProps) {
 	return (
-		<html lang='en' suppressHydrationWarning>
+		<html lang='en' suppressHydrationWarning >
 			<body
 				className={`${creteRound.variable} ${workSans.variable} overflow-x-hidden`}
+				suppressHydrationWarning={true}
 			>
 				<ThemeProvider
 					attribute='class'
@@ -34,6 +36,7 @@ function RootLayout({ children }: ChildProps) {
 					disableTransitionOnChange
 				>
 					{children}
+					<Toaster position={'top-center'}/>
 				</ThemeProvider>
 			</body>
 		</html>
