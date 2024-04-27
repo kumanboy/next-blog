@@ -2,6 +2,12 @@ import CategoriesTagsCard from '@/components/cards/categories-tags'
 import { getCategories } from '@/service/category.service'
 import { Dot, Home } from 'lucide-react'
 import Link from 'next/link'
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+	title: 'Barcha kategoryalar',
+}
+
 
 async function Page() {
 	const categories = await getCategories()

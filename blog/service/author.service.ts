@@ -24,7 +24,7 @@ export const getAuthors = async () => {
 	return authors
 }
 
-export const getDetaileddAuthor = async (id: string) => {
+export const getDetailedAuthor = async (id: string) => {
 	const query = gql`
 		query MyQuery($id: ID) {
 			author(where: { id: $id }) {

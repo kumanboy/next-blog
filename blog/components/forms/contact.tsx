@@ -1,57 +1,58 @@
 'use client'
-import {useForm} from "react-hook-form";
-import {contactSchema} from "@/lib/validation";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {z} from "zod";
-import {Form, FormControl, FormField, FormItem, FormMessage} from "@/components/ui/form";
-import {Textarea} from "@/components/ui/textarea";
-import {Input} from "@/components/ui/input";
-import {Button} from "@/components/ui/button";
-import {Send} from "lucide-react";
-import {toast} from "sonner";
-import {useState} from "react";
+
+import {contactSchema} from '@/lib/validation'
+import {zodResolver} from '@hookform/resolvers/zod'
+import {Send} from 'lucide-react'
+import {useState} from 'react'
+import {useForm} from 'react-hook-form'
+import {toast} from 'sonner'
+import {z} from 'zod'
+import {Button} from '../ui/button'
+import {Form, FormControl, FormField, FormItem, FormMessage} from '../ui/form'
+import {Input} from '../ui/input'
+import {Textarea} from '../ui/textarea'
 
 function ContactForm() {
     const [isLoading, setIsLoading] = useState(false)
+
     const form = useForm<z.infer<typeof contactSchema>>({
         resolver: zodResolver(contactSchema),
         defaultValues: {
-            email: "",
-            message: "",
-            name: ""
+            email: '',
+            message: '',
+            name: '',
         },
     })
 
     function onSubmit(values: z.infer<typeof contactSchema>) {
         setIsLoading(true)
-        const tgBotId = process.env.NEXT_TELEGRAM_BOT_API
-        const tgBotChatId = process.env.NEXT_TELEGRAM_CHAT_ID
+        const tgBotId = process.env.NEXT_BOT_API||'7091478360:AAGEhYozzs2gYZkaMspDJUsyYrdmjZZI1-I'
+        const tgBotChatId = process.env.NEXT_CHAT_API||5465530147
 
-        const promise = fetch(`https://api.telegram.org/bot${tgBotId}/sendMessage`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "cache-control": "no-cache",
-                "mode": 'no-cors',
-
-            },
-            body: JSON.stringify({
-                chatId: tgBotChatId,
-                text: `Name: ${values.name}:
-				Email: ${values.email}:
-				Message: ${values.message}
-				`
-            }),
-        }
+        const promise = fetch(
+            `https://api.telegram.org/bot${tgBotId}/sendMessage`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'cache-control': 'no-cache',
+                },
+                body: JSON.stringify({
+                    chat_id: tgBotChatId,
+                    text: `Name: ${values.name}:
+Email: ${values.email}:
+Message: ${values.message}`,
+                }),
+            }
         )
-            .then(()=> form.reset())
+            .then(() => form.reset())
             .finally(() => setIsLoading(false))
+
         toast.promise(promise, {
             loading: 'Loading...',
             success: 'Successfully sent!',
-            error: 'Something went wrong',
+            error: 'Something went wrong!',
         })
-
     }
 
     return (
@@ -81,8 +82,8 @@ function ContactForm() {
                         <FormItem>
                             <FormControl>
                                 <Input
-                                    disabled={isLoading}
                                     placeholder='Email address'
+                                    disabled={isLoading}
                                     {...field}
                                 />
                             </FormControl>
@@ -98,6 +99,7 @@ function ContactForm() {
                             <FormControl>
                                 <Input
                                     placeholder='Your name here'
+                                    disabled={isLoading}
                                     {...field}
                                 />
                             </FormControl>
@@ -109,6 +111,7 @@ function ContactForm() {
                     className='w-fit'
                     size={'lg'}
                     type='submit'
+                    disabled={isLoading}
                 >
                     <span>Send</span>
                     <Send className='w-4 h-4 ml-2'/>

@@ -7,7 +7,8 @@ function AuthorCard(author: IAuthor) {
 	return (
 		<Link
 			className='flex flex-col space-y-2 w-52 text-center'
-		href={`/author/${author.id}`}
+			href={`/author/${author.id}`}
+
 		>
 			<div className='w-full h-52 relative'>
 				<Image

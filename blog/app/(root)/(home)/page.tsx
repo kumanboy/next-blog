@@ -1,6 +1,11 @@
 import BlogCard from '@/components/cards/blog'
 import BgArrow from '@/components/shared/bg-arrow'
 import { getBlogs } from '@/service/blog.service'
+import {Metadata} from "next";
+
+export const metadata: Metadata ={
+	title: 'Xush kelibsiz'
+}
 
 async function HomePage() {
 	const blogs = await getBlogs()
