@@ -40,7 +40,7 @@ export const getBlogs = async () => {
 	return blogs
 }
 
-export const getDetailedBlog = cache(async (slug: string) => {
+export const getDetailedBlog = cache( async (slug: string) => {
 	const query = gql`
 		query MyQuery($slug: String!) {
 			blog(where: { slug: $slug }) {

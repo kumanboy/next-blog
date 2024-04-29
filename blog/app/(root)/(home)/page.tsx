@@ -1,5 +1,4 @@
 import BlogCard from '@/components/cards/blog'
-import BgArrow from '@/components/shared/bg-arrow'
 import { getBlogs } from '@/service/blog.service'
 import {Metadata} from "next";
 
@@ -16,7 +15,7 @@ async function HomePage() {
 				<h1 className='text-3xl md:text-4xl lg:text-5xl font-creteRound text-center max-w-2xl'>
 					Taking control of your daily life is easy when you know how!
 				</h1>
-				<BgArrow />
+
 			</div>
 			<h2 className='text-center text-4xl section-title font-creteRound'>
 				<span>Recent posts</span>
