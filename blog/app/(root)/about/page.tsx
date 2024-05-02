@@ -38,7 +38,7 @@ async function AboutPage() {
 			<div className='grid grid-cols-4 gap-4 min-h-96 mt-6'>
 				<div className='col-span-2 max-md:col-span-4 relative h-80'>
 					<Image
-						src={'/about/01.jpg'}
+						src={'/about/01.png'}
 						alt='about'
 						fill
 						className='rounded-md object-cover'
@@ -46,7 +46,7 @@ async function AboutPage() {
 				</div>
 				<div className='h-80 self-end relative max-md:col-span-2 max-md:h-72'>
 					<Image
-						src={'/about/00.jpg'}
+						src={'/about/00.png'}
 						alt='about'
 						fill
 						className='rounded-md object-cover'
@@ -54,7 +54,7 @@ async function AboutPage() {
 				</div>
 				<div className='relative h-80 max-md:col-span-2 max-md:mb-8 max-md:h-72'>
 					<Image
-						src={'/about/02.jpg'}
+						src={'/about/02.png'}
 						alt='about'
 						fill
 						className='rounded-md object-cover'
