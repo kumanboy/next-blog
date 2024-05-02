@@ -34,7 +34,7 @@ async function Page({ params }: { params: { slug: string } }) {
 				</div>
 			</div>
 
-			<div className='grid grid-cols-2 max-md:grid-cols-1 gap-x-4 gap-y-24 mt-24'>
+			<div className='grid grid-cols-2 max-md:grid-cols-1 gap-x-4 gap-y-24 mt-24 gap-4'>
 				{tag.blogs.map(blog => (
 					<BlogCard key={blog.title} {...blog} isVertical />
 				))}
