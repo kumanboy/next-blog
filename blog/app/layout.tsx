@@ -33,7 +33,11 @@ export const metadata: Metadata = {
         type: 'website',
         url: 'https://talimot.uz',
         locale: 'en_EN',
-        images: '/about/uchiha.jpg',
+        images: [
+            {
+                url: '/about/uchiha.jpg',
+            }
+        ],
         countryName: 'Uzbekistan',
         siteName: 'Next Blog',
         emails: 'info@next.edu',
