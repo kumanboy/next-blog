@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         type: 'website',
         url: 'https://talimot.uz',
         locale: 'en_EN',
-        images: 'https://kinsta.com/wp-content/uploads/2019/12/how-to-start-a-fashion-blog.jpg',
+        images: '/about/uchiha.jpg',
         countryName: 'Uzbekistan',
         siteName: 'Next Blog',
         emails: 'info@next.edu',
