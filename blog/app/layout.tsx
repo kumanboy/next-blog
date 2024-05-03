@@ -6,6 +6,7 @@ import {Crete_Round, Work_Sans} from 'next/font/google'
 import './globals.css'
 import NextTopLoader from "nextjs-toploader";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import {Analytics} from "@vercel/analytics/next";
 
 
 const creteRound = Crete_Round({
@@ -57,8 +58,9 @@ function RootLayout({children}: ChildProps) {
         >
             <NextTopLoader/>
             {children}
-            <Toaster position='top-center'/>
             <SpeedInsights />
+            <Analytics/>
+            <Toaster position='top-center'/>
         </ThemeProvider>
         </body>
         </html>
